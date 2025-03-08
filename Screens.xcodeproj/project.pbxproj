@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,6 +24,7 @@
 		057C846B252CEEB400C4074A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		058E2A10252CF015006AFEC0 /* ExternalDisplayContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalDisplayContent.swift; sourceTree = "<group>"; };
 		058E2A18252CF409006AFEC0 /* ExternalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalView.swift; sourceTree = "<group>"; };
+		3E43D2A32D7C969B003CFBCB /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = ../Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +43,7 @@
 			children = (
 				057C8461252CEEB300C4074A /* Screens */,
 				057C8460252CEEB300C4074A /* Products */,
+				3E43D2A42D7C96A5003CFBCB /* Config */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +75,14 @@
 				057C8469252CEEB400C4074A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3E43D2A42D7C96A5003CFBCB /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				3E43D2A32D7C969B003CFBCB /* SampleCode.xcconfig */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,7 +120,7 @@
 				};
 			};
 			buildConfigurationList = 057C845A252CEEB300C4074A /* Build configuration list for PBXProject "Screens" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -156,6 +166,7 @@
 /* Begin XCBuildConfiguration section */
 		057C846C252CEEB400C4074A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E43D2A32D7C969B003CFBCB /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -217,6 +228,7 @@
 		};
 		057C846D252CEEB400C4074A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E43D2A32D7C969B003CFBCB /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -272,12 +284,14 @@
 		};
 		057C846F252CEEB400C4074A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E43D2A32D7C969B003CFBCB /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Screens/Preview Content\"";
-				DEVELOPMENT_TEAM = 7JTC3SZUZB;
+				DEVELOPMENT_TEAM = V84A37W2K5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Screens/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -285,8 +299,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.prathameshk.Screens;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.sample-code.Screens${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -294,12 +309,14 @@
 		};
 		057C8470252CEEB400C4074A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E43D2A32D7C969B003CFBCB /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Screens/Preview Content\"";
-				DEVELOPMENT_TEAM = 7JTC3SZUZB;
+				DEVELOPMENT_TEAM = V84A37W2K5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Screens/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -307,8 +324,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.prathameshk.Screens;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.sample-code.Screens${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
