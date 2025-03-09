@@ -5,65 +5,50 @@
 //  Created by Prathamesh Kowarkar on 06/10/20.
 //
 
-import Combine
 import SwiftUI
+import UIKit
+import OSLog
+
+let logger = Logger()
 
 @main
 struct ScreensApp: App {
 
-    @ObservedObject var externalDisplayContent = ExternalDisplayContent()
+    @State private var externalDisplay = ExternalDisplay()
+    @State var externalDisplayContent = ExternalDisplayContent()
+    var scene: some UIWindowScene { externalDisplay.scene }
+
     @State var additionalWindows: [UIWindow] = []
-
-    private var screenDidConnectPublisher: AnyPublisher<UIScreen, Never> {
-        NotificationCenter.default
-            .publisher(for: UIScreen.didConnectNotification)
-            .compactMap { $0.object as? UIScreen }
-            .receive(on: RunLoop.main)
-            .eraseToAnyPublisher()
-    }
-
-    private var screenDidDisconnectPublisher: AnyPublisher<UIScreen, Never> {
-        NotificationCenter.default
-            .publisher(for: UIScreen.didDisconnectNotification)
-            .compactMap { $0.object as? UIScreen }
-            .receive(on: RunLoop.main)
-            .eraseToAnyPublisher()
-    }
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(externalDisplayContent)
-                .onReceive(
-                    screenDidConnectPublisher,
-                    perform: screenDidConnect
-                )
-                .onReceive(
-                    screenDidDisconnectPublisher,
-                    perform: screenDidDisconnect
-                )
+                .environment(externalDisplayContent)
+                .onChange(of: externalDisplay.isConnected) {_, isConnected in
+                    if isConnected {
+                        screenDidConnect()
+                    } else {
+                        screenDidDisconnect()
+                    }
+                }
         }
     }
 
-    private func screenDidConnect(_ screen: UIScreen) {
-        let window = UIWindow(frame: screen.bounds)
-
-        window.windowScene = UIApplication.shared.connectedScenes
-            .first { ($0 as? UIWindowScene)?.screen == screen }
-            as? UIWindowScene
-
+    private func screenDidConnect() {
+        // scene.screen.currentMode = scene.screen.availableModes.first { $0.size.width == 720 }
+        let window = UIWindow(windowScene: scene)
         let view = ExternalView()
-            .environmentObject(externalDisplayContent)
+            .environment(externalDisplayContent)
         let controller = UIHostingController(rootView: view)
+
         window.rootViewController = controller
         window.isHidden = false
         additionalWindows.append(window)
         externalDisplayContent.isShowingOnExternalDisplay = true
     }
-
-    private func screenDidDisconnect(_ screen: UIScreen) {
-        additionalWindows.removeAll { $0.screen == screen }
+   
+    private func screenDidDisconnect() {
+        additionalWindows.removeAll { $0.screen == scene.windows.first?.screen }
         externalDisplayContent.isShowingOnExternalDisplay = false
     }
-
 }

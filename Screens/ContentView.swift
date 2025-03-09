@@ -9,9 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @EnvironmentObject var externalDisplayContent: ExternalDisplayContent
+    @Environment(ExternalDisplayContent.self) var externalDisplayContent 
 
     var body: some View {
+        @Bindable var externalDisplayContent = externalDisplayContent
+
         NavigationView {
             Form {
                 if externalDisplayContent.isShowingOnExternalDisplay == false {
@@ -22,6 +24,10 @@ struct ContentView: View {
                 Section(header: Text("Input")) {
                     TextField("Text", text: $externalDisplayContent.string)
                 }
+
+                Button(action: externalDisplayContent.increment) {
+                            Text("Increment")
+                        }
             }
             .navigationTitle("Screens")
         }
@@ -29,10 +35,7 @@ struct ContentView: View {
 
 }
 
-struct ContentView_Previews: PreviewProvider {
-
-    static var previews: some View {
-        ContentView()
-    }
-
+#Preview {
+    ContentView()
+        .environment(ExternalDisplayContent())
 }

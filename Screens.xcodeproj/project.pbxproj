@@ -13,6 +13,7 @@
 		057C846A252CEEB400C4074A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 057C8469252CEEB400C4074A /* Preview Assets.xcassets */; };
 		058E2A11252CF015006AFEC0 /* ExternalDisplayContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058E2A10252CF015006AFEC0 /* ExternalDisplayContent.swift */; };
 		058E2A19252CF409006AFEC0 /* ExternalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058E2A18252CF409006AFEC0 /* ExternalView.swift */; };
+		3E43D32F2D7DC107003CFBCB /* ExternalDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E43D32E2D7DC107003CFBCB /* ExternalDisplay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		058E2A10252CF015006AFEC0 /* ExternalDisplayContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalDisplayContent.swift; sourceTree = "<group>"; };
 		058E2A18252CF409006AFEC0 /* ExternalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalView.swift; sourceTree = "<group>"; };
 		3E43D2A32D7C969B003CFBCB /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = ../Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
+		3E43D32E2D7DC107003CFBCB /* ExternalDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalDisplay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				057C8462252CEEB300C4074A /* ScreensApp.swift */,
 				057C8464252CEEB300C4074A /* ContentView.swift */,
 				058E2A18252CF409006AFEC0 /* ExternalView.swift */,
+				3E43D32E2D7DC107003CFBCB /* ExternalDisplay.swift */,
 				058E2A10252CF015006AFEC0 /* ExternalDisplayContent.swift */,
 				057C8466252CEEB400C4074A /* Assets.xcassets */,
 				057C846B252CEEB400C4074A /* Info.plist */,
@@ -157,6 +160,7 @@
 			files = (
 				057C8465252CEEB300C4074A /* ContentView.swift in Sources */,
 				058E2A11252CF015006AFEC0 /* ExternalDisplayContent.swift in Sources */,
+				3E43D32F2D7DC107003CFBCB /* ExternalDisplay.swift in Sources */,
 				057C8463252CEEB300C4074A /* ScreensApp.swift in Sources */,
 				058E2A19252CF409006AFEC0 /* ExternalView.swift in Sources */,
 			);
@@ -298,7 +302,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Screens/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Screens/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,7 +326,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Screens/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Screens/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

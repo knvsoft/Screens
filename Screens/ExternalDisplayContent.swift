@@ -7,9 +7,15 @@
 
 import Foundation
 
-class ExternalDisplayContent: ObservableObject {
+@Observable class ExternalDisplayContent {
+    var string = ""
+    var isShowingOnExternalDisplay = false
 
-    @Published var string = ""
-    @Published var isShowingOnExternalDisplay = false
+    var counter = 0
 
+    func increment() {
+        counter += 1
+    }
 }
+
+

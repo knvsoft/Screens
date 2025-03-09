@@ -9,18 +9,23 @@ import SwiftUI
 
 struct ExternalView: View {
 
-    @EnvironmentObject var externalDisplayContent: ExternalDisplayContent
+    @Environment(ExternalDisplayContent.self) var externalDisplayContent
 
     var body: some View {
-        Text(externalDisplayContent.string)
+        VStack {
+            Text(externalDisplayContent.string)
+
+
+            Text("\(externalDisplayContent.counter)")
+                .font(.system(size: 96, weight: .bold))
+                .contentTransition(.numericText())
+                .animation(.default, value: externalDisplayContent.counter)
+        }
     }
 
 }
 
-struct ExternalView_Previews: PreviewProvider {
-
-    static var previews: some View {
-        ExternalView()
-    }
-
+#Preview {
+    ExternalView()
+        .environment(ExternalDisplayContent())
 }
